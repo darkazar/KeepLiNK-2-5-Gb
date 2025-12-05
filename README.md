@@ -24,4 +24,7 @@ Firmware Date 	June 7 2025
 Hardware Version 	V3.1
 
 
+Default ip addr afrer reset: 192.168.1.168 admin/admin
+
+
 MAC Addr: 78D800320000 located in dump file at: 001FC000
