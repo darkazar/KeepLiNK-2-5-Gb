@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>KERNEL PANIC</title>
+
+<style>
+body{
+    background:black;
+    color:#00ff00;
+    font-family: "Courier New", monospace;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+}
+
+.terminal{
+    border:2px solid #00ff00;
+    padding:40px;
+    box-shadow:0 0 20px #00ff00;
+}
+
+pre{
+    font-size:22px;
+    line-height:1.2;
+}
+
+.cursor{
+    display:inline-block;
+    width:10px;
+    background:#00ff00;
+    margin-left:5px;
+    animation:blink 1s infinite;
+}
+
+@keyframes blink{
+    0%{opacity:1;}
+    50%{opacity:0;}
+    100%{opacity:1;}
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="terminal">
+<pre id="text"></pre><span class="cursor"></span>
+</div>
+
+<script>
+const ascii = `
+██   ██ ███████ ██████  ███    ██ ███████ ██      
+██  ██  ██      ██   ██ ████   ██ ██      ██      
+█████   █████   ██████  ██ ██  ██ █████   ██      
+██  ██  ██      ██   ██ ██  ██ ██ ██      ██      
+██   ██ ███████ ██   ██ ██   ████ ███████ ███████ 
+
+██████   █████  ███    ██ ██  ██████ 
+██   ██ ██   ██ ████   ██ ██ ██      
+██████  ███████ ██ ██  ██ ██ ██      
+██      ██   ██ ██  ██ ██ ██ ██      
+██      ██   ██ ██   ████ ██  ██████
+`;
+
+let i = 0;
+const speed = 20;
+const text = document.getElementById("text");
+
+function typeWriter(){
+    if(i < ascii.length){
+        text.textContent += ascii.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+    }
+}
+
+typeWriter();
+</script>
+
+</body>
+</html>
